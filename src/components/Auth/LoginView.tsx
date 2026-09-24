@@ -6,6 +6,7 @@ export const LoginView: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const debugUrl = import.meta.env.VITE_SUPABASE_URL;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ export const LoginView: React.FC = () => {
       <form onSubmit={handleSubmit} className="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
         <h1 className="text-xl font-bold text-slate-900 mb-1">Zondenta Clinic</h1>
         <p className="text-sm text-slate-500 mb-6">Sign in with your clinic account</p>
+        <p className="text-xs text-red-500 mb-4 break-all">DEBUG URL: {String(debugUrl)}</p>
 
         <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
         <input
